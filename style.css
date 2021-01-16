@@ -1,0 +1,163 @@
+body {
+  background-color: #292929;
+  font-family: "Comic Sans", cursive, sans-serif;
+  color: #fff;
+}
+.toggleWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  padding: 0 200px;
+  transform: translate3d(-50%, -50%, 0);
+}
+.toggleWrapper input {
+  position: absolute;
+  left: -99em;
+}
+.studymode {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 90px;
+  height: 50px;
+  background-color: #83D8FF;
+  border-radius: 84px;
+  transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.studymode:before {
+  content: "Thisisme";
+  position: absolute;
+  left: -90px;
+  top: 14px;
+  font-size: 20px;
+}
+.studymode:after {
+  content: "webdev";
+  position: absolute;
+  right: -80px;
+  top: 14px;
+  font-size: 20px;
+  color: #33e1ed;
+}
+.switch {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  top: 3px;
+  left: 3px;
+  width: 44px;
+  height: 44px;
+  background-color: #ff7038;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: rotate(-45deg);
+}
+.switch .patch {
+  position: absolute;
+  background-color: #c4b399;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  border-radius: 100%;
+}
+.switch .patch--1 {
+  top: 18px;
+  left: 10px;
+  width: 4px;
+  height: 4px;
+}
+.switch .patch--2 {
+  top: 28px;
+  left: 22px;
+  width: 6px;
+  height: 6px;
+}
+.switch .patch--3 {
+  top: 10px;
+  left: 25px;
+  width: 8px;
+  height: 8px;
+}
+
+.blink {
+  position: absolute; background-color: #ffffff;
+  transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  border-radius: 50%;
+}
+.blink--1 {
+  top: 10px; left: 35px; z-index: 0;
+  width: 30px; height: 3px;
+}
+.blink--2 {
+  top: 18px; left: 28px; z-index: 1;
+  width: 30px; height: 3px;
+}
+.blink--3 {
+  top: 27px; left: 40px; z-index: 0;
+  width: 30px; height: 3px;
+}
+.blink--4,
+.blink--5,
+.blink--6 {
+  opacity: 0;
+  transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.blink--4 {
+  top: 16px; left: 11px; width: 2px; height: 2px;
+  z-index: 0; transform: translate3d(3px, 0, 0);
+}
+.blink--5 {
+  top: 32px; left: 17px; width: 3px; height: 3px;
+  z-index: 0; transform: translate3d(3px, 0, 0);
+}
+.blink--6 {
+  top: 36px; left: 28px; width: 2px; height: 2px;
+  z-index: 0; transform: translate3d(3px, 0, 0);
+}
+
+input:checked + .studymode {
+  background-color: #749DD6;
+}
+input:checked + .studymode:before {
+  color: #749ED7;
+}
+input:checked + .studymode:after {
+  color: #ffffff;
+}
+input:checked + .studymode .switch {
+  background-color: #FFE5B5;
+  transform: translate3d(40px, 0, 0) rotate(0);
+}
+input:checked + .studymode .switch .patch {
+  opacity: 1;
+}
+input:checked + .studymode .blink--1 {
+  width: 2px;
+  height: 2px;
+}
+input:checked + .studymode .blink--2 {
+  width: 4px;
+  height: 4px;
+  transform: translate3d(-5px, 0, 0);
+}
+input:checked + .studymode .blink--3 {
+  width: 2px;
+  height: 2px;
+  transform: translate3d(-7px, 0, 0);
+}
+input:checked + .studymode .blink--4,
+input:checked + .studymode .blink--5,
+input:checked + .studymode .blink--6 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+input:checked + .studymode .blink--4 {
+  transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+input:checked + .studymode .blink--5 {
+  transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+input:checked + .studymode .blink--6 {
+  transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
